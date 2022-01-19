@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "n7jSipe2Eh6H4gvKxyiFJx2d/w1xC7TgyyR8Sb8+Rn4=",
+  "Source": "DaprHeathCheck",
+  "BasePath": "_content/DaprHeathCheck",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,38 @@
+﻿--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: heathcheckapi
+    group: com.bosch.cs
+    team: swdc-ops
+  name: heathcheckapi
+  namespace: default
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: heathcheckapi
+  template: 
+    metadata: 
+      annotations: 
+        dapr.io/app-id: heathcheckapi
+        dapr.io/app-port: "80"
+        dapr.io/enabled: "true"
+        dapr.io/log-level: debug
+      labels: 
+        app: heathcheckapi
+    spec:
+      containers:
+        -
+          env:
+            -
+              name: ASPNETCORE_URLS
+              value: "http://+:80"
+          image: "sharmakartik25/msft:heathcheckapi"
+          imagePullPolicy: Always
+          name: heathcheckapi
+          ports:
+            -
+              containerPort: 80
+              protocol: TCP

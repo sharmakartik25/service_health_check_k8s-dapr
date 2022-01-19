@@ -1,0 +1,14 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: daprhealthcheck
+  namespace: default
+  labels:
+    app: daprhealthcheck
+spec:
+  ports:
+    - port: 5000
+      targetPort: 5000
+  selector:
+    app: daprhealthcheck
+  type: NodePort

@@ -1,0 +1,15 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: heathcheckapi
+  namespace: default
+  labels:
+    app: heathcheckapi
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: heathcheckapi
+  type: NodePort

@@ -1,0 +1,30 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daprhealthcheck
+  namespace: default
+  labels:
+    app: daprhealthcheck
+    group: com.bosch.cs
+    team: swdc-ops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daprhealthcheck
+  template:
+    metadata:
+      labels:
+        app: daprhealthcheck
+      annotations:
+        dapr.io/app-id: daprhealthcheck
+        dapr.io/log-level: "debug"
+        dapr.io/enabled: "true"
+        dapr.io/app-port: "80"
+    spec:
+      containers:
+      - name: daprhealthcheck
+        image: sharmakartik25/msft:daprhealthcheck
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
